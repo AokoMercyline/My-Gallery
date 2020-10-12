@@ -1,14 +1,14 @@
 :satisfied:
 ## My-Gallery
-#### This project help users view images available with category and location, Monday October 11th 2020
+#### This project help users view images available with category and location, Monday October 12th 2020
 #### By **Aoko Mercyline**
 
 ## Description
 This is an app that allows users to find images of their choice
 
 ## Project live site
-  This is the live .[ Click for the demo](https://thegallery001.herokuapp.com/)
- ![Image](media/images/project.png)
+  This is the live .[ Click for the demo]
+ ![Image](static/images/mygallery.jpg)
 ## Features
 * landing page containing random images
 * images being displayed according to the time posted
