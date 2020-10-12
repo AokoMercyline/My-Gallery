@@ -19,3 +19,10 @@ class Image(models.Model):
         verbose_name='Images'
         
         
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
+        
+        
+        
