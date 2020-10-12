@@ -16,7 +16,13 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-
+  <script type="text/javascript">
+    function copyToClipboard(element) {
+        var myVar = document.getElementById(element);
+        myVar.select();
+        document.execCommand("copy");
+    }
+</script> 
 
 </head>
 
@@ -46,7 +52,7 @@
   {% block content%}
 
   {% endblock %}
-
+  
   <!-- SCRIPTS -->
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
