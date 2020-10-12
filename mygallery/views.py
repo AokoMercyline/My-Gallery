@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Image
+from django.db import models
 
 # Create your views here.
 def welcome(request):
@@ -24,4 +25,6 @@ def search_results(request):
     def search_by_title(cls,search_term):
         news = cls.objects.filter(title__icontains=search_term)
         return news
+    
+
     
