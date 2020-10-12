@@ -17,6 +17,7 @@ import dj_database_url
 from decouple import config,Csv
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -147,11 +148,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-cloudinary.config(
-  cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
-  api_key = os.environ.get('CLOUDINARY_API_KEY'),  
-  api_secret =os.environ.get('CLOUDINARY_API_SECRET')  
-)
+# cloudinary.config(
+#   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
+#   api_key = os.environ.get('CLOUDINARY_API_KEY'),  
+#   api_secret =os.environ.get('CLOUDINARY_API_SECRET')  
+# )
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
