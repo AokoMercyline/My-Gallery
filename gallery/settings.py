@@ -26,12 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', default=True)
+SECRET_KEY =config('SECRET_KEY', default=True)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG=False
-MODE=os.environ.get("MODE", default="dev")
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
+DEBUG=config('DEBUG', default="false")
+MODE=config("MODE", default="dev")
+ALLOWED_HOSTS =config('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -149,6 +149,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 django_heroku.settings(locals())
+
 # cloudinary.config(
 #   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
 #   api_key = os.environ.get('CLOUDINARY_API_KEY'),  

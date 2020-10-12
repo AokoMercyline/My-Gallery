@@ -4,11 +4,12 @@
 #### By **Aoko Mercyline**
 
 ## Description
-This is an app that allows users to find images of their choice.
+This is an app that allows users to find specific images of their own choice.
 
 ## Project live site
   This is the live .[ Click for the demo]
  ![Image](static/images/mygallery.jpg)
+ 
 ## Features
 * landing page containing random images
 * images being displayed according to the time posted
@@ -28,6 +29,9 @@ This is an app that allows users to find images of their choice.
 | input field with image link  | **Click input field** | Copy the image link|
 | red button on the modal  | **Click close on modal** | exits the modal|
 | about us link on navbar  | **Click about on navbar** | get you to the page with mor details of the application|
+
+## Known Bugs
+searching button is not well responsive.Solution for this,Kindly view the image from home page
 
 ## Setup/Installation requirements
 1.Clone or download and unzip the repository from github,https://github.com/AokoMercyline/My-Gallery
