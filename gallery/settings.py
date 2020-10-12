@@ -148,6 +148,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+django_heroku.settings(locals())
 # cloudinary.config(
 #   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
 #   api_key = os.environ.get('CLOUDINARY_API_KEY'),  
@@ -155,4 +156,4 @@ STATICFILES_DIRS = [
 # )
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+
