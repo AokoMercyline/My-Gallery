@@ -1,0 +1,13 @@
+export SECRET_KEY='123456789mercyline'
+export ALLOWED_HOSTS='.herokuapp.com'
+export DEBUG=false
+export DB_NAME='gallery'
+export DB_PASSWORD=1234
+export DB_USER='mercy'
+export DB_HOST='127.0.0.1'
+export DB_PORT=5432
+export MODE='prod'
+export CLOUDINARY_CLOUD_NAME="dhdd69mvk"  
+export CLOUDINARY_API_KEY="387226176446156"  
+export CLOUDINARY_API_SECRET="2ObDOYJ4EZmOJ4-YYcqcrqgAAkA"  
+expoert DISABLE_COLLECTSTATIC=1

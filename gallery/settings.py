@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+import dj_database_url
+from decouple import config,Csv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', default=True)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = os.environ.get('DEBUG', default=False, cast=bool)
+MODE=os.environ.get("MODE", default="dev")
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
 
 
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,18 +79,26 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.environ.get('DB_NAME'),
-        'PASSWORD':os.environ.get('DB_PASSWORD'),
-        'USER':os.environ.get('DB_USER'),
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT':os.environ.get('DB_PORT',5432),
-    }
+if config('MODE')=="dev":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME':os.environ.get('DB_NAME'),
+            'PASSWORD':os.environ.get('DB_PASSWORD'),
+            'USER':os.environ.get('DB_USER'),
+            'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+            'PORT':os.environ.get('DB_PORT',5432),
+        }
 }
-
+#production
+else:
+    DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -123,9 +136,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-# cloudinary.config(
-#   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
-#   api_key = os.environ.get('CLOUDINARY_API_KEY'),  
-#   api_secret =os.environ.get('CLOUDINARY_API_SECRET')  
-# )
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+cloudinary.config(
+  cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
+  api_key = os.environ.get('CLOUDINARY_API_KEY'),  
+  api_secret =os.environ.get('CLOUDINARY_API_SECRET')  
+)
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
