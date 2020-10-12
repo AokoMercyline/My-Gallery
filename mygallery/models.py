@@ -23,6 +23,18 @@ class Image(models.Model):
     def search_by_title(cls,search_term):
         news = cls.objects.filter(title__icontains=search_term)
         return news
+    
+class Category(models.Model):
+    category = models.CharField(max_length=80, null= True)
+    
+    def save_category(self):
+        self.save()
+    def delete_category(self):
+        self.delete()
+    def update_category(self):
+        self.update()
+    def __str__(self):
+        return self.category
         
         
         
