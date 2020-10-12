@@ -4,7 +4,7 @@
 #### By **Aoko Mercyline**
 
 ## Description
-This is an app that allows users to find images of their choice
+This is an app that allows users to find images of their choice.
 
 ## Project live site
   This is the live .[ Click for the demo]

@@ -27,10 +27,4 @@ class CategoryTestClass(TestCase):
         category = Category.objects.all()
         self.assertTrue(len(category)>0)
 
-    def test_delete_method(self):
-        '''
-        Method to delete the category
-        '''
-        self.food.delete_category('food')
-        category = Category.objects.all()
-        self.assertTrue(len(category)==0)
+    

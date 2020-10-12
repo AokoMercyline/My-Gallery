@@ -18,7 +18,7 @@ def search_results(request):
         return render(request, 'mygallery/search.html',{"message":message,"images": searched_images})
     else:
         message = "You haven't searched for any image category"
-        return render(request, 'mygallery/search_results.html', {"message": message})
+        return render(request, 'mygallery/search.html', {"message": message})
 
         
     @classmethod
