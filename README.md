@@ -1,5 +1,5 @@
 :satisfied:
-#My-Gallery
+## My-Gallery
 #### This project help users view images available with category and location, Monday October 11th 2020
 #### By **Aoko Mercyline**
 
