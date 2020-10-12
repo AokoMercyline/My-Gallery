@@ -6,7 +6,7 @@ from . import views
 
 
 urlpatterns = [
-    path('/',welcome, name='home'),
+    path('',welcome, name='home'),
     url(r'^search/', views.search_results, name='search_results')
     # path('dynamic/<slug:query>/' , dynamic_urls, name='dynamic')
 ]
