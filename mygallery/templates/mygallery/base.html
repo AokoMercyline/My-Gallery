@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Gallery</title>
-  <!-- Font Awesome -->
+  
+    {% block styles %}
+        <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
@@ -16,20 +18,15 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-  <script type="text/javascript">
-    function copyToClipboard(element) {
-        var myVar = document.getElementById(element);
-        myVar.select();
-        document.execCommand("copy");
-    }
-</script> 
+        <link rel="stylesheet" href="{% static 'css/css/index.css' %}">
+    {% endblock %}
 
 </head>
 
 <body>
 
   <nav class="navbar navbar-expand-lg bg-warning fixed-top">
-    <a class="navbar-brand" href="#" style="font-size: 30px;font-family: 'Luckiest Guy', cursive;color: green;
+    <a class="navbar-brand" href="#" style="font-size: 30px;font-family: 'Luckiest Guy', cursive;color: white;
     ">My Gallerie</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

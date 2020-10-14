@@ -7,7 +7,7 @@
 This is an app that allows users to find specific images of their own choice.
 
 ## Project live site
-  This is the live .[ Click for the demo]
+  This is the live .[ Click for the demo](https://mygallerie.herokuapp.com/)
  ![Image](static/images/mygallery.jpg)
  
 ## Features
@@ -52,8 +52,10 @@ searching button is not well responsive.Solution for this,Kindly view the image 
 * BOOTSTRAP
 * CSS
 * POSTGRESS
+
 ## Support and contact details
 contact me @ aokomercyline34@gmail.com
+
 ### License
 The project is under[MIT license](/blob/master/LICENSE)
 Copyright &copy; 2020.All rigths reserved

@@ -15,6 +15,7 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
 
 
 
@@ -84,11 +85,11 @@ if config('MODE')=="dev":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME':os.environ.get('DB_NAME'),
-            'PASSWORD':os.environ.get('DB_PASSWORD'),
-            'USER':os.environ.get('DB_USER'),
-            'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-            'PORT':os.environ.get('DB_PORT',5432),
+            'NAME':'gallery',
+            'PASSWORD':'1234',
+            'USER':'mercy',
+            'HOST': '127.0.0.1',
+            'PORT':5432,
         }
 }
 #production
@@ -150,11 +151,11 @@ STATICFILES_DIRS = [
 ]
 django_heroku.settings(locals())
 
-# cloudinary.config(
-#   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),  
-#   api_key = os.environ.get('CLOUDINARY_API_KEY'),  
-#   api_secret =os.environ.get('CLOUDINARY_API_SECRET')  
-# )
+cloudinary.config(
+  cloud_name ='dhdd69mvk',  
+  api_key ='387226176446156',  
+  api_secret ='2ObDOYJ4EZmOJ4-YYcqcrqgAAkA'  
+)
 
 # Configure Django App for Heroku.
 
